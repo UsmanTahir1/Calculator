@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+         <meta charset="UTF-8">
+         <title> Calculator!!! </title>
+         <style>
+             .calculatorBody{
+                 width: 375px;
+                 height: 450px;     
+                 border:5px solid black;
+                 margin: 20px auto;
+                 position: relative;    
+             }
+
+             .b{
+                width: 75px;
+                height: 75px;
+                border:1px solid black;
+                font-size: 20px;
+
+                position: absolute;
+             }
+
+             .input{
+                 width: 370px;
+                 height: 75px;
+                 position: absolute;
+                 font-size: 40px;
+             }
+
+         </style>
+
+    </head>
+
+    <body>
+
+        <h1 style="text-align:center">Simple Calculator</h1>
+        
+            <form name="Calculator">
+                <div class="calculatorBody">
+                    <input class="input", id="input_id" placeholder="Hello World!" type="text" value="" disabled>
+            
+                    <input type="button" id="button1/x" class="b", style="bottom: 0px;left:0px ;" onclick="invserse()" value="1/X"/>
+                    <input type="button" id="buttonDot" class="b", style="bottom: 0px;left:75px ;"onclick="myFunction(this)" value="."/>
+                    <input type="button" id="button_x2" class="b", style="bottom: 0px;left:150px ;" onclick="square()" value="X2"/>
+                    <input type="button" id="button_sq_root" class="b", style="bottom: 0px;left:225px;" onclick="sq_root()" value="√x"/>
+                    <input type="button" id="button_C" class="b", style="bottom: 0px;left:300px ; background-color: firebrick;" onclick="clearScreen()", value="C"/>
+
+
+                    <input type="button" id="buttonM+" class="b", style="bottom: 75px;left:0px ;" onclick="MPlus()", value="M+"/>
+                    <input type="button" id="button9" class="b", style="bottom: 75px;left:75px ;"onclick="myFunction(this)" value="9"/>
+                    <input type="button" id="button+-" class="b", style="bottom: 75px;left:150px ;" onclick="plusMinus()" value="+-"/>
+                    <input type="button" id="button=" class="b", style="bottom: 75px;left:225px;background-color: greenyellow;" onclick="result()" value="="/>
+                    <input type="button" id="button/" class="b", style="bottom: 75px;left:300px ;"onclick="myFunction(this)" value="/"/>
+
+                    <input type="button" id="buttonMR" class="b", style="bottom: 150px;left:0px ;" onclick="MR()", value="MR"/>
+                    <input type="button" id="button6" class="b", style="bottom: 150px;left:75px ;"onclick="myFunction(this)" value="6"/>
+                    <input type="button" id="button7" class="b", style="bottom: 150px;left:150px ;"onclick="myFunction(this)" value="7"/>
+                    <input type="button" id="button8" class="b", style="bottom: 150px;left:225px ;"onclick="myFunction(this)" value="8"/>
+                    <input type="button" id="buttonx" class="b", style="bottom: 150px;left:300px ;"onclick="myFunction(this)" value="*"/>
+
+                    
+                    <input type="button" id="buttonMS" class="b", style="bottom: 225px;left:0px ;" onclick="MS()", value="MS"/>
+                    <input type="button" id="button3" class="b", style="bottom: 225px;left:75px ;"onclick="myFunction(this)" value="3"/>
+                    <input type="button" id="button4" class="b", style="bottom: 225px;left:150px ;"onclick="myFunction(this)" value="4"/>
+                    <input type="button" id="button5" class="b", style="bottom: 225px;left:225px ;"onclick="myFunction(this)" value="5"/>
+                    <input type="button" id="button-" class="b", style="bottom: 225px;left:300px ;"onclick="myFunction(this)" value="-"/>
+
+
+                    <input type="button" id="buttonMC" class="b", style="bottom: 300px;left:0px ;" onclick="MC()", value="MC"/>
+                    <input type="button" id="button0" class="b", style="bottom: 300px;left:75px ;"onclick="myFunction(this)" value="0"/>
+                    <input type="button" id="button1" class="b", style="bottom: 300px;left:150px ;"onclick="myFunction(this)" value="1"/>
+                    <input type="button" id="button2" class="b", style="bottom: 300px;left:225px ;"onclick="myFunction(this)" value="2"/>
+                    <input type="button" id="button+" class="b", style="bottom: 300px;left:300px;" onclick="myFunction(this)" value="+"/>
+
+
+                </div>
+           </form>
+
+           <script>
+               var M = 0;
+               
+            
+            function MS(){
+
+                var text = document.getElementById('input_id').value;
+                var x = eval(text);
+                M = x;
+
+            }
+
+            function MPlus(){
+                var text = document.getElementById('input_id').value;
+                var x = eval(text);
+                M = x + M;
+                document.getElementById('input_id').value = M;
+            }
+
+            function MR(){
+                document.getElementById('input_id').value = M;
+            }
+
+            function MC(){
+                M = 0;
+            }
+
+
+
+            function myFunction(elem){
+                var x = document.getElementById(elem.id).value;
+                var text = document.getElementById('input_id');
+                text.value += x;
+
+            }
+
+            function result(){
+                var text = document.getElementById('input_id').value;
+                var x = eval(text);
+                document.getElementById('input_id').value = x;
+            }
+
+            function clearScreen(){
+                document.getElementById('input_id').value = "";
+            }
+
+            function plusMinus(){
+
+                var x = document.getElementById('input_id').value
+                x = x * -1;
+                document.getElementById('input_id').value = x;
+               
+            }
+
+            function invserse(){
+
+                var text = document.getElementById('input_id').value;
+                var x = eval(text);
+                x = 1/x;
+                document.getElementById('input_id').value = x;
+
+            }
+
+            function sq_root(){
+
+                var text = document.getElementById('input_id').value;
+                var x = eval(text);
+                x = Math.sqrt(x);
+                document.getElementById('input_id').value = x;
+
+            }
+
+            function square(){
+      
+                var text = document.getElementById('input_id').value;
+                var x = eval(text);
+                x = x*x;
+                document.getElementById('input_id').value = x;
+
+            }
+            
+            </script>
+
+    </body>
+</html>
